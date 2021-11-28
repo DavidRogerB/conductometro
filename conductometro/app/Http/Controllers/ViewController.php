@@ -40,7 +40,7 @@ class ViewController extends Controller
             // admin
             // aqui obter todas as contact form submission
             $contactForm = DB::select("SELECT id, name, email, telefone, mensagem, deseja_marketing, created_at, updated_at FROM contact_form_submissions;");
-            return view('admin_dashboard', ['contactData' => json_encode($contactForm)]);
+            return view('admin_dashboard', ['contactForm' => $contactForm]);
         }
     }
 }
