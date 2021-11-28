@@ -34,7 +34,8 @@ class ViewController extends Controller
             // aqui obter todas as aulas na DB
             // usando models seria assim: $aulasData = Aula::all();
             $aulasData = DB::select("SELECT id, name, capacidade_alunos, tipo_aula, momento_aula, created_at, updated_at FROM aulas;");
-            return view('dashboard', ['aulasData' => json_encode($aulasData)]);
+
+            return view('dashboard', ['aulasData' => $aulasData]);
         } else {
             // admin
             // aqui obter todas as contact form submission

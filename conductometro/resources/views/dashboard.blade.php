@@ -15,7 +15,12 @@
         <h4>VEJA O SEU PROGRESSO</h4>
         <h4>Reserve as suas aulas já!</h4>
         <!-- AQUI LOOP MOSTRANDO AULAS-->
-        {{ $aulasData }}
+        @foreach ($aulasData as $aula)
+            <div>
+                <p>Tipo Aula {{ $aula->tipo_aula }}</p>
+                <p>Momento Aula {{ $aula->momento_aula }}</p>
+            </div>
+        @endforeach
     </div>
 
 </x-app-layout>
