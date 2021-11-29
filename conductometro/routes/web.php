@@ -23,4 +23,8 @@ Route::get('/dashboard', [ViewController::class, 'dashboardPage'])->middleware([
 
 Route::post('/submit/contact-form', [ContactFormSubmissionController::class, 'handleContactFormSubmission']);
 
+Route::post('/submit/aulaPorCriar', [ViewController::class, 'handleCriacaoDeAula']);
+
+Route::post('/submit/consultarAula', [ViewController::class, 'handleConsuladeAula']);
+
 require __DIR__ . '/auth.php';

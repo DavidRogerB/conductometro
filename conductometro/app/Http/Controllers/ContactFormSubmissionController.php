@@ -49,6 +49,7 @@ class ContactFormSubmissionController extends Controller
         if ($checkboxValue === 'on') {
             return 1;
         }
+        
 
         return 0;
     }

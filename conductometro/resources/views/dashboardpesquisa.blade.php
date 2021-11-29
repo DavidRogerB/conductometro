@@ -23,14 +23,13 @@
                     action="/submit/consultarAula">
                     @csrf
               <h2>  Para quando quere agendar a sua aula?</h2>
-              <input type="date" name="diaDaConsulta">
+              <input type="date" name="diaDaAula">
               <button type="submit" class="btn btn-warning">Ver aulas disponíveis no dia selecionado</button>
             </form>
                 </div>
             </div>
         </div>
         <table class="table">
-
             <tr>
                 <th>
                     Tipo de Aula
@@ -38,15 +37,25 @@
                 <th>
                     Data da Aula
                 </th>
+                <th>
+                    Horas da Aula
+                </th>
+                <th>
+                    Nome da Aula
+                </th>
             </tr>
-            @foreach ($aulasData as $aula)
-                <tr>
+            @foreach ($aulas as $aulas)
 
-                    <td>{{ $aula->tipo_aula }}</td>
-                    <td> {{ $aula->diaDaAula }} </td>
-                </tr>
-            @endforeach
+            <tr>
+
+                <td>{{ $aulas->tipo_aula }}</td>
+                <td> {{ $aulas->diaDaAula }} </td>
+                <td> {{ $aulas->horas }} </td>
+                <td> {{ $aulas->name }} </td>
+            </tr>
+        @endforeach
         </table>
+
 
     </div>
 

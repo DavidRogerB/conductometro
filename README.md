@@ -1,22 +1,28 @@
 # conductometro
+I'm humbled to introduce Conductometro, a web application developed in Laravel that aims to provide any teaching-oriented business in need of basic cloud support with a wide-reaching solution!
 
-Sistema de agendamento 2000.01
+It consists of a landing page that includes a contact form, where anonymous users can submit their personal details
+as these are then stored in the Database and accessible through the admin's dashboard.
+Admins and users have been given dashboard interfaces that match the scope of their needs and authority within the platform.
+Admins will have the possibility of reading the data submitted to the aforementioned contact form as well as:
+ Schedule lessons, specifying their name(Topic being addressed in class), capacity, date and time;
+ Declare availability for 1:1 lessons(each student shall only have the capacity to  book sessions with an unvarying teacher. This relationship will be permanent although Admins can alter it)
+ Accept 1:1 sessions and have users automatically notified
+ Confirm attendance at the begginning of each lesson(soon!)
+ Access and edit users records
 
-	Sistema onde a escola pode facilitar informacao em relaçao as aulas disponiveis, e as horas disponiveis dos instrutores, para que os alunos possam reservar aulas.
+Users will be able to register, and log in to the system.
+Their dashboard includes:
+Two progress bars that indicate how far into each course they are (28 theory 32 practice)
+A table with upcoming classes
+A form where they can input a specific date when they'd be interested to attend a lesson
+Another search bar to book their 1:1, according to their personal teacher's availability, set by Admins.
 
-Ha dois tipos de aulas: Teoricas e de conducao. As teoricas sao coletivas e podem assistir um numero x de alunos, enquanto as segundas sao 1:1.
 
-Cada aluno tera a possibilidade de ver a lista de aulas as quais assistiu, a data das mesmas, e o seu progresso em relacao ao numero de aulas necessario para finalizar(marcar exame).
-
-Conductometro:
-
-Como executar aplicacao:
-Apartir da raiz do projeto
-	executar numa terminal :
-			cd conductometro
+In order to run the project requires the repo manager widely known as Docker, which you can easily download at no cost from: https://www.docker.com/
+Once installed and running, you should access the folder conductometro through your terminal and run:
 			
 			./vendor/bin/sail up
-
-			Requere de que o Docker Engine esteja em funcionamento
+Docker Engine must be up during run-time otherwise services will simply not work.
 
 	

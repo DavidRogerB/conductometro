@@ -14,6 +14,56 @@ class ViewController extends Controller
     {
         return view('landing');
     }
+    public function handleConsuladeAula(Request $request)
+    {
+
+        // validar dados e descodificar form request em array
+
+
+        // guardar os detalhes da aula agendada
+
+
+
+       // $dia = DB::select("SELECT  name, capacidade_alunos, tipo_aula, diaDaAula, horas FROM aulas WHERE diaDaAula = '2000-12-25'; ");
+       $aulas = DB::table('aulas')->get();
+
+
+        return view("dashboardpesquisa",['aulas' => $aulas]);
+    }
+
+
+
+
+    public function handleCriacaoDeAula(Request $request)
+    {
+
+        // validar dados e descodificar form request em array
+        $validatedRequest = $request->all();
+
+        Log::error("contact form data:", [json_encode($validatedRequest)]);
+
+        // guardar os detalhes da aula agendada
+        $insertQuery = "INSERT INTO aulas
+        (name,capacidade_alunos,tipo_aula, diaDaAula,horas,created_at)
+        VALUES (?,?,?,?,?, CURRENT_TIMESTAMP());";
+
+
+
+        DB::insert($insertQuery, [
+            $validatedRequest['name'],
+            $validatedRequest['capacidade_alunos'],
+            $validatedRequest['tipo_aula'],
+            $validatedRequest['diaDaAula'],
+            $validatedRequest['horas'],
+        ]);
+
+
+        return view("sucesoaula", [
+            'name' => $validatedRequest['name'],
+            'diaDaAula' => $validatedRequest['diaDaAula']
+
+        ]);
+    }
 
     public function dashboardPage(Request $request)
     {
@@ -33,14 +83,17 @@ class ViewController extends Controller
             // usuario normal / aluno
             // aqui obter todas as aulas na DB
             // usando models seria assim: $aulasData = Aula::all();
-            $aulasData = DB::select("SELECT id, name, capacidade_alunos, tipo_aula, momento_aula, created_at, updated_at FROM aulas;");
+            $aulasData = DB::select("SELECT id, name, capacidade_alunos, tipo_aula, diaDaAula, horas, created_at, updated_at FROM aulas;");
 
             return view('dashboard', ['aulasData' => $aulasData]);
         } else {
             // admin
             // aqui obter todas as contact form submission
             $contactForm = DB::select("SELECT id, name, email, telefone, mensagem, deseja_marketing, created_at, updated_at FROM contact_form_submissions;");
-            return view('admin_dashboard', ['contactForm' => $contactForm]);
+            $aulas = DB::insert('INSERT INTO aulas (name, capacidade_alunos,tipo_aula,diaDaAula, horas ) values (?, ?, ?, ?, ?)', [0, '20',"2",'2000-12-25','23:00:00']);
+
+
+            return view('admin_dashboard', ['contactForm' => $contactForm], ['aulas' => $aulas]);
         }
     }
 }
