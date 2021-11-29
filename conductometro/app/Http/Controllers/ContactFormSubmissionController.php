@@ -22,7 +22,12 @@ class ContactFormSubmissionController extends Controller
         // validar dados e descodificar form request em array
         $validatedRequest = $request->all();
 
-        Log::error("contact form data:", [json_encode($validatedRequest)]);
+        // Log::error("contact form data:", [json_encode($validatedRequest)]);
+
+        $desejaMarketing = 0;
+        if (array_key_exists('desejamarketing', $validatedRequest)) {
+            $desejaMarketing = $this->convertCheckboxToInteger($validatedRequest['desejamarketing']);
+        }
 
         // guardar os dados do contact form
         $insertQuery = "INSERT INTO contact_form_submissions
@@ -35,7 +40,7 @@ class ContactFormSubmissionController extends Controller
             $validatedRequest['email'],
             $validatedRequest['mensagem'],
             $validatedRequest['telefone'],
-            $this->convertCheckboxToInteger($validatedRequest['desejamarketing']),
+            $desejaMarketing,
         ]);
 
         return view("success_contact_form", [
@@ -49,7 +54,6 @@ class ContactFormSubmissionController extends Controller
         if ($checkboxValue === 'on') {
             return 1;
         }
-        
 
         return 0;
     }
