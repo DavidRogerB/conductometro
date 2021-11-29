@@ -19,13 +19,12 @@
             <div class="row">
                 <div class="col">
 
-                    <form method="POST" enctype="application/x-www-form-urlencoded"
-                    action="/submit/consultarAula">
-                    @csrf
-              <h2>  Para quando quere agendar a sua aula?</h2>
-              <input type="date" name="diaDaConsulta">
-              <button type="submit" class="btn btn-warning">Ver aulas disponíveis no dia selecionado</button>
-            </form>
+                    <form method="POST" enctype="application/x-www-form-urlencoded" action="/submit/consultarAula">
+                        @csrf
+                        <h2> Para quando quere agendar a sua aula?</h2>
+                        <input type="date" name="diaDaAula">
+                        <button type="submit" class="btn btn-warning">Ver aulas disponíveis no dia selecionado</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -41,9 +40,14 @@
             </tr>
             @foreach ($aulasData as $aula)
                 <tr>
+                    <form method="POST" enctype="application/x-www-form-urlencoded" action="/submit/reservarAula">
+                        @csrf
+                        <td>{{ $aula->tipo_aula }}</td>
+                        <td> {{ $aula->diaDaAula }} </td>
+                        <td><button type="submit">Reservar</button></td>
+                        <input type="hidden" value="{{ $aula->id }}" name="aula_id" />
 
-                    <td>{{ $aula->tipo_aula }}</td>
-                    <td> {{ $aula->diaDaAula }} </td>
+                    </form>
                 </tr>
             @endforeach
         </table>
