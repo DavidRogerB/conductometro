@@ -26,7 +26,7 @@ This project has been tested in macOS and Ubuntu Linux. It should still be funct
 
 The project requires the presence of an `.env` file inside the `conductometro` folder, containing the parameters for the application. There is an `.env.example` file which can be taken as example to create the correct file. Otherwise contact the author of the project for a functional copy of the `.env` file.
 
-In order to run the project requires the container engine Docker, which you can easily download at no cost from [here](https://www.docker.com/). Docker Engine must be up during run-time otherwise services will simply not work.
+In order to run the project, the container engine Docker is required, which you can easily download at no cost from [here](https://www.docker.com/). Docker Engine must be up during run-time otherwise services will simply not work.
 
 Once Docker is installed and running, you should, from the root directory of this project, in a terminal, run:
 
