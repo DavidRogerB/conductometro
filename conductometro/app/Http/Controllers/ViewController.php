@@ -18,17 +18,17 @@ class ViewController extends Controller
     {
 
         // validar dados e descodificar form request em array
-
+        $validatedData = $request->all();
 
         // guardar os detalhes da aula agendada
+        $wantedDay = $validatedData['diaDaAula'];
 
 
+        $aulas = DB::select("SELECT  name, capacidade_alunos, tipo_aula, diaDaAula, horas FROM aulas WHERE diaDaAula = ? ORDER BY horas ASC; ", [$wantedDay]);
+        //$aulas = DB::table('aulas')->get();
 
-       // $dia = DB::select("SELECT  name, capacidade_alunos, tipo_aula, diaDaAula, horas FROM aulas WHERE diaDaAula = '2000-12-25'; ");
-       $aulas = DB::table('aulas')->get();
 
-
-        return view("dashboardpesquisa",['aulas' => $aulas]);
+        return view("dashboardpesquisa", ['aulas' => $aulas]);
     }
 
 
@@ -83,17 +83,18 @@ class ViewController extends Controller
             // usuario normal / aluno
             // aqui obter todas as aulas na DB
             // usando models seria assim: $aulasData = Aula::all();
-            $aulasData = DB::select("SELECT id, name, capacidade_alunos, tipo_aula, diaDaAula, horas, created_at, updated_at FROM aulas;");
+            $aulasData = DB::select("SELECT id, name, capacidade_alunos, tipo_aula, diaDaAula, horas, created_at, updated_at FROM aulas ORDER BY horas ASC;");
 
             return view('dashboard', ['aulasData' => $aulasData]);
         } else {
             // admin
             // aqui obter todas as contact form submission
-            $contactForm = DB::select("SELECT id, name, email, telefone, mensagem, deseja_marketing, created_at, updated_at FROM contact_form_submissions;");
-            $aulas = DB::insert('INSERT INTO aulas (name, capacidade_alunos,tipo_aula,diaDaAula, horas ) values (?, ?, ?, ?, ?)', [0, '20',"2",'2000-12-25','23:00:00']);
+            $contactForm = DB::select("SELECT id, name, email, telefone, mensagem, deseja_marketing, created_at, updated_at
+            FROM contact_form_submissions
+            ORDER BY created_at DESC LIMIT 10;");
 
-
-            return view('admin_dashboard', ['contactForm' => $contactForm], ['aulas' => $aulas]);
+            //$aulas = DB::insert('INSERT INTO aulas (name, capacidade_alunos,tipo_aula,diaDaAula, horas ) values (?, ?, ?, ?, ?)', [0, '20', "2", '2000-12-25', '23:00:00']);
+            return view('admin_dashboard', ['contactForm' => $contactForm]);
         }
     }
 }

@@ -79,17 +79,18 @@
                                             <td>{{ $form->telefone }}</td>
                                             <td>{{ $form->created_at }}</td>
                                             <td>{{ $form->mensagem }}
-                                        </tr> @endforeach
-                                    </table>
-                                </div>
-                            </div>
-
-
-
-
+                                        </tr>
+                                    @endforeach
+                        </table>
                     </div>
                 </div>
-            </div>
 
+
+
+
+            </div>
         </div>
+    </div>
+
+    </div>
 </x-app-layout>
