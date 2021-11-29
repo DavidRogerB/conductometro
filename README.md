@@ -34,7 +34,7 @@ Once Docker is installed and running, you should, from the root directory of thi
 cd conductometro && ./vendor/bin/sail up
 ```
 
-If you want to develop on this project, PHP 7.3+ is required, and a database client is recommended like MySQL Workbench.
+If you want to develop on this project, PHP 7.3+ is required, and a database client is recommended (MySQL Workbench or alike).
 
 
 	
