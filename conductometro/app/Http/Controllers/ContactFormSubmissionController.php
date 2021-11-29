@@ -20,7 +20,15 @@ class ContactFormSubmissionController extends Controller
     {
 
         // validar dados e descodificar form request em array
-        $validatedRequest = $request->all();
+        //$validatedRequest = $request->all();
+        $validatedRequest = $request->validate([
+            'nome' => 'required',
+            'email' => 'required|email',
+            'mensagem' => 'required',
+            'telefone' => 'required',
+            'desejamarketing' => '',
+            'politicaprivacidade' => ''
+        ]);
 
         // Log::error("contact form data:", [json_encode($validatedRequest)]);
 

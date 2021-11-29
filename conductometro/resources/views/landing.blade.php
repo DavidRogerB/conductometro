@@ -238,13 +238,13 @@
                             <input class="form-control text-center " type="text" name="nome">
 
                             <label for="email">Email:</label>
-                            <input class="form-control text-center" type="text" name="email">
+                            <input class="form-control text-center" type="email" name="email">
 
                             <label for="telefone">Telefone/Telemóvel:</label>
                             <input class="form-control text-center form-control-sm" type="text" name="telefone">
 
                             <label for="mensagem">Mensagem</label>
-                            <textarea name="mensagem" placeholder="Escreva aqui a sua mensagem..."
+                            <textarea required name="mensagem" placeholder="Escreva aqui a sua mensagem..."
                                 class="form-control"></textarea>
 
                             <div class="form-check">
