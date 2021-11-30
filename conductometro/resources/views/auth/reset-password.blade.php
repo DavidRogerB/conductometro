@@ -36,7 +36,7 @@
 
             <div>
                 <button>
-                    {{ __('Reset Password') }}
+                    {{ __('Restablecer a palavra-passe') }}
                 </button>
             </div>
         </form>

@@ -64,6 +64,7 @@
                         <table class="table">
                             <div class="row">
                                 <div class="col-12">
+                                    <h2>Mensagens submetidos na página!</h2>
                                     <tr>
 
                                         <th class="table-warning">Nome</th>

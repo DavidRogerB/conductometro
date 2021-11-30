@@ -19,10 +19,15 @@
             <div class="row">
                 <div class="col">
 
+
                     <form method="POST" enctype="application/x-www-form-urlencoded" action="/submit/consultarAula">
                         @csrf
                         <h2> Para quando quere agendar a sua aula?</h2>
-                        <input type="date" name="diaDaAula">
+
+
+
+
+                        <input type="date" min="<?php echo date("Y-m-d")?>" name="diaDaAula">
                         <button type="submit" class="btn btn-warning">Ver aulas disponíveis no dia selecionado</button>
                     </form>
                 </div>
@@ -39,6 +44,7 @@
                 </th>
             </tr>
             @foreach ($aulasData as $aula)
+
                 <tr>
                     <form method="POST" enctype="application/x-www-form-urlencoded" action="/submit/reservarAula">
                         @csrf

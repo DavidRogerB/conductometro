@@ -2,12 +2,13 @@
 
 
         <div>
-            {{ __('Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn\'t receive the email, we will gladly send you another.') }}
+            {{ __('Obrigado por se registar! Antes de começar a usar a plataforma, agradeciamos que verificasse o seu email, clicando no endereço electronico que lhe acabamos de mandar ao mesmo.
+            Se não o recebeu, podemos sempre enviar-lhe outro!') }}
         </div>
 
         @if (session('status') == 'verification-link-sent')
             <div>
-                {{ __('A new verification link has been sent to the email address you provided during registration.') }}
+                {{ __('Um novo email de verificação foi enviado ao e-mail com que se registou.') }}
             </div>
         @endif
 
@@ -30,5 +31,5 @@
                 </button>
             </form>
         </div>
-    
+
 </x-guest-layout>
