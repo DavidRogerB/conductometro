@@ -43,6 +43,9 @@
                 <th>
                     Nome da Aula
                 </th>
+                <th>
+
+                </th>
             </tr>
             @foreach ($aulas as $aulas)
 
@@ -52,6 +55,7 @@
                 <td> {{ $aulas->diaDaAula }} </td>
                 <td> {{ $aulas->horas }} </td>
                 <td> {{ $aulas->name }} </td>
+                <td> <a href="" class="btn btn-warning">Reserve já</a></td>
             </tr>
         @endforeach
         </table>

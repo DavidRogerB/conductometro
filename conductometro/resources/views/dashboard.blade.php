@@ -50,7 +50,7 @@
                         @csrf
                         <td>{{ $aula->tipo_aula }}</td>
                         <td> {{ $aula->diaDaAula }} </td>
-                        <td><button type="submit">Reservar</button></td>
+                        <td><button type="submit" class="btn btn-warning">Reservar</button></td>
                         <input type="hidden" value="{{ $aula->id }}" name="aula_id" />
 
                     </form>

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ContactFormSubmissionController;
 use App\Http\Controllers\ViewController;
+use App\Http\Controllers\ResevadorDeAulasController;
 use App\Models\Aula;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
@@ -26,5 +27,7 @@ Route::post('/submit/contact-form', [ContactFormSubmissionController::class, 'ha
 Route::post('/submit/aulaPorCriar', [ViewController::class, 'handleCriacaoDeAula']);
 
 Route::post('/submit/consultarAula', [ViewController::class, 'handleConsuladeAula']);
+
+Route::post('/submit/reservarAula', [ResevadorDeAulasController::class, 'handleReservaDeAula']);
 
 require __DIR__ . '/auth.php';
