@@ -25,8 +25,9 @@ Their dashboard includes:
 This project has been tested in macOS and Ubuntu Linux. It should still be functional in Windows too, but has been untested.
 
 The technical requirements are:
-- PHP 8.0+ installed
-- Docker Engine / Docker Desktop which you can easily download at no cost from [here](https://www.docker.com/)
+- [PHP 8.0+](https://www.php.net/)
+- [Composer](https://getcomposer.org/)
+- [Docker Engine / Docker Desktop](https://www.docker.com/)
 
 The project requires the presence of an `.env` file inside the `conductometro` folder, containing the parameters for the application. There is an `.env.example` file which can be taken as example to create the correct file. Otherwise contact the author of the project for a functional copy of the `.env` file.
 
