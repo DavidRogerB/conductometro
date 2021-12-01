@@ -24,17 +24,21 @@ Their dashboard includes:
 ## Running the project
 This project has been tested in macOS and Ubuntu Linux. It should still be functional in Windows too, but has been untested.
 
+The technical requirements are:
+- [PHP 8.0+](https://www.php.net/)
+- [Composer](https://getcomposer.org/)
+- [Docker Engine / Docker Desktop](https://www.docker.com/)
+
 The project requires the presence of an `.env` file inside the `conductometro` folder, containing the parameters for the application. There is an `.env.example` file which can be taken as example to create the correct file. Otherwise contact the author of the project for a functional copy of the `.env` file.
 
-In order to run the project, the container engine Docker is required, which you can easily download at no cost from [here](https://www.docker.com/). Docker Engine must be up during run-time otherwise services will simply not work.
-
+In order to run the project, Docker Engine must be up during run-time otherwise services will simply not work.
 Once Docker is installed and running, you should, from the root directory of this project, in a terminal, run:
 
 ```	
-cd conductometro && ./vendor/bin/sail up
+cd conductometro 
+composer install
+./vendor/bin/sail up
 ```
-
-If you want to develop on this project, PHP 7.3+ is required, and a database client is recommended (MySQL Workbench or alike).
 
 
 	
