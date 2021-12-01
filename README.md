@@ -39,7 +39,5 @@ composer install
 ./vendor/bin/sail up
 ```
 
-If you want to develop on this project, PHP 7.3+ is required, and a database client is recommended (MySQL Workbench or alike).
-
 
 	
